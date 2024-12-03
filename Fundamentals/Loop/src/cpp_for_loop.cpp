@@ -70,10 +70,73 @@ bool isPrimeNumber(int n)
     if (n <= 1)
         return false;
     int count = 0;
-    for (int i = 1; i < sqrt(n); i++)
+    for (int i = 1; i <= sqrt(n); i++)
     {
         if (n % i == 0)
             ++count;
     }
     return (count == 1) ? true : false;
+}
+
+bool isPerfectNumber(int n)
+/**
+ * Function to check if a number is a perfect number
+ * Return true if it is a perfect number, otherwise return false
+ *
+ * Params:
+ * n (int): An integer number to check
+ *
+ * Returns:
+ * bool: A number n is a perfect number or not
+ */
+{
+    if (n < 1)
+        return false;
+    int sum = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (n % i == 0)
+            sum += i;
+    }
+    return sum == n;
+}
+
+std::vector<int> findPerfectNumbers(const std::vector<int> &vec)
+/**
+ *  Function to find perfect numbers in a vector
+ *
+ *  Parameters:
+ *  vec (vector<int>): A vector integer includes perfect numbers and other integer numbers
+ *
+ *  Returns:
+ *  vector<int>: A vector contains perfect numbers
+ */
+{
+    std::vector<int> res;
+    for (const auto &i : vec)
+    {
+        if (isPerfectNumber(i))
+            res.push_back(i);
+    }
+    return res;
+}
+
+int countPrimeNumber(const std::vector<int> &vec)
+/**
+ * Function to count total number of prime numbers in a vector
+ *
+ * Parameters:
+ * vec (vector<int>): A vector integer includes natural numbers
+ *
+ * Returns:
+ * count<int>: Total numbers of prime numbers in vector
+ */
+{
+    int count = 0;
+    for (const auto &i : vec)
+    {
+        if (isPrimeNumber(i))
+            ++count;
+    }
+    return count;
 }
