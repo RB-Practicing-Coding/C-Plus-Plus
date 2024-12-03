@@ -6,20 +6,22 @@ This repository is dedicated to practicing various coding techniques and concept
 ## Project Structure
     /project
         /module
-            main.cpp
-            utils.cpp
+            /src
+                main.cpp
+                utils.cpp
             /tests
                 main_test.cpp
             /bin
                 main.out
+            /out/buid/${presetName}/... (if CMake)
 
 ## Compilation:
-We can compile and run c++ via compile_run.sh
+We can compile and run c++ via compile_run.sh using **CMake** build or below scripts (if unit tests are not needed)
 ### At your workspace folder:
 ```bash
 ./compile_run.sh <directory-to-cpp-files>
 ```
 ### For example:
 ```bash
-./compile_run.sh Fundamentals/Parallel_Threads/
+./compile_run.sh Fundamentals/Loop/src/
 ```

@@ -20,17 +20,19 @@ if [ -z "$SRC_FILES" ]; then
     exit 1
 fi
 
-# Find all .cpp files in the tests directory of the specified module (if exists)
-if [ -d "$DIR/$MODULE/tests" ]; then
-    TEST_FILES=$(find "$DIR/$MODULE/tests" -name "*.cpp" 2>/dev/null)
-fi
+# # Find all .cpp files in the tests directory of the specified module (if exists)
+# if [ -d "$DIR/$MODULE/../tests" ]; then
+#     TEST_FILES=$(find "$DIR/$MODULE/../tests" -name "*.cpp" 2>/dev/null)
+# fi
 
 # Create bin directory if it does not exist
-mkdir -p "$DIR/$MODULE/bin"
+mkdir -p "$DIR/$MODULE/../bin"
 
 # Compile command
-if [ -z "$TEST_FILES" ]; then
-    g++ -fdiagnostics-color=always -g $SRC_FILES -o "$DIR/$MODULE/bin/main.out"
-else
-    g++ -fdiagnostics-color=always -g $SRC_FILES $TEST_FILES -o "$DIR/$MODULE/bin/main.out"
-fi
+g++ -fdiagnostics-color=always -g $SRC_FILES -o "$DIR/$MODULE/../bin/main.out"
+# Error, Update later
+# if [ -z "$TEST_FILES" ]; then
+#     g++ -fdiagnostics-color=always -g $SRC_FILES -o "$DIR/$MODULE/../bin/main.out"
+# else
+#     g++ -fdiagnostics-color=always -I/path/to/gtest/include -L/path/to/gtest/lib -lgtest -lgtest_main -pthread -g $TEST_FILES -o "$DIR/$MODULE/../bin/main_test.out"
+# fi

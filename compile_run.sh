@@ -7,4 +7,4 @@ MODULE=$1
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Run binary file
-"$DIR/$MODULE/bin/main.out"
+"$DIR/$MODULE/../bin/main.out"
